@@ -13,7 +13,7 @@
         {
           "qtype": "hivStatus",
           "name": "Patient HIV status",
-          "enrollIf": "positive",
+          "enrollIf": "positive,",
           "value": null,
           "answers": [
             {

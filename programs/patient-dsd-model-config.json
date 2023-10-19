@@ -1,0 +1,446 @@
+{
+  "fa96b074-e058-44ca-81e5-02f5ea144319 ": {
+    "name": "ADULT PROGRAM",
+    "dataDependencies": [
+      "patient",
+      "enrollment",
+      "patientEncounters",
+      "isPatientTransferredOut",
+      "latestCovidAssessment"
+    ],
+    "enrollmentOptions": {
+      "requiredProgramQuestions": [
+        {
+          "qtype": "hivStatus",
+          "name": "Patient HIV status",
+          "enrollIf": "age < 24",
+          "value": null,
+          "answers": [
+            {
+              "value": "positive",
+              "label": "Positive"
+            },
+            {
+              "value": "negative",
+              "label": "Negative"
+            },
+            {
+              "value": "exposed",
+              "label": "Exposed"
+            }
+          ]
+        }
+      ],
+      "allowMultipleEnrollment": false,
+      "stateChangeEncounterTypes": {
+        "enrollment": [],
+        "transfer": [
+          {
+            "uuid": "cbe2d31d-2201-44ce-b52e-fbd5dc7cff33",
+            "name": "AMPATH POC Transfer Out Form v0.01",
+            "required": true
+          }
+        ],
+        "discharge": [
+          {
+            "uuid": "9765992c-6279-46cc-915b-452a73e7dab5",
+            "name": "AMPATH POC HIV Exit Care Form v1.1",
+            "required": true
+          }
+        ]
+      }
+    },
+    "incompatibleWith": [
+      "781d897a-1359-11df-a1f1-0026b9348838",
+      "96047aaf-7ab3-45e9-be6a-b61810fe617d",
+      "c19aec66-1a40-4588-9b03-b6be55a8dd1d",
+      "334c9e98-173f-4454-a8ce-f80b20b7fdf0",
+      "96ba279b-b23b-4e78-aba9-dcbd46a96b7b",
+      "781d8880-1359-11df-a1f1-0026b9348838",
+      "0904172d-0b6a-40df-b8a2-b3653d16dc45",
+      "a8e7c30d-6d2f-401c-bb52-d4433689a36b",
+      "f7793d42-11ac-4cfd-9b35-e0a21a7a7c31",
+      "c4246ff0-b081-460c-bcc5-b0678012659e"
+    ],
+    "visitTypes": [
+      {
+        "uuid": "33d13ffb-5f0e-427e-ab80-637491fb6526",
+        "name": "Adult HIV Initial Visit ",
+        "allowedIf": "age >= 24 && programLocation === intendedVisitLocationUuid && isFirstAMPATHHIVVisit",
+        "message": "Patient has to be 20yrs and above, in the location he enrolled into the HIV Care and Treatment program and there must not be prior clinical encounter.",
+        "encounterTypes": [
+          {
+            "uuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7",
+            "display": "HIVTRIAGE"
+          },
+          {
+            "uuid": "2226e81f-38fc-4672-a615-1d37e1c8e637",
+            "display": "ADHERENCE"
+          },
+          {
+            "uuid": "8d5b27bc-c2cc-11de-8d13-0010c6dffd0f",
+            "display": "ADULTINITIAL"
+          },
+          {
+            "uuid": "cbe2d31d-2201-44ce-b52e-fbd5dc7cff33",
+            "display": "TRANSFERENCOUNTER"
+          },
+          {
+            "uuid": "df55584c-1350-11df-a1f1-0026b9348838",
+            "display": "DEATHREPORT"
+          },
+          {
+            "uuid": "1469e5fe-ad76-4041-9aa7-650e6afbe3a1",
+            "display": "DERMATOLOGYREFERRAL"
+          },
+          {
+            "uuid": "238625fc-8a25-44b2-aa5a-8bf48fa0e18d",
+            "display": "ONCOLOGYVIA",
+            "allowedIf": "age >= 25 && age <= 49 && gender === 'F'"
+          },
+          {
+            "uuid": "ae35ed69-e07c-4209-93ce-f23733aa816b",
+            "display": "FAMILYSTATUS"
+          },
+          {
+            "uuid": "466d6707-8429-4e61-b5a0-d63444f5ad35",
+            "display": "COVIDSCREENING"
+          },
+          {
+            "uuid": "afabceae-61d4-42b6-8f6a-fff48a7797ea",
+            "display": "COVIDCASEREPORTING"
+          },
+          {
+            "uuid": "a393699f-8e99-4727-81c3-873873022dd8",
+            "display": "MOBILITYSCREENING"
+          },
+          {
+            "uuid": "5b1ef308-ed8f-4a86-88a0-c29a30246740",
+            "display": "HIVCLINICALREFERRAL"
+          },
+          {
+            "uuid": "8010fabc-2e58-4160-a201-fce9c609d2fa",
+            "display": "COVIDASSESSMENT"
+          },
+          {
+            "uuid": "37770eca-8a2f-48d6-b3c8-54af0fa989c2",
+            "display": "MENTALHEALTHSCREENING"
+          }
+        ]
+      },
+      {
+        "uuid": "0ae56e8a-93ed-4071-82f1-0eaf3eb592ff",
+        "name": "Adult Transfer In Visit ",
+        "allowedIf": "age >= 24 && programLocation === intendedVisitLocationUuid && isPatientTransferredOut && !isFirstAMPATHHIVVisit",
+        "message": "Patient has to be 20yrs and above , patient's program location should be equal to the last HIV clinical encounter location and should not be the first clinical encounter",
+        "encounterTypes": [
+          {
+            "uuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7",
+            "display": "HIVTRIAGE"
+          },
+          {
+            "uuid": "8d5b2be0-c2cc-11de-8d13-0010c6dffd0f",
+            "display": "ADULTRETURN"
+          },
+          {
+            "uuid": "df55584c-1350-11df-a1f1-0026b9348838",
+            "display": "DEATHREPORT"
+          },
+          {
+            "uuid": "1469e5fe-ad76-4041-9aa7-650e6afbe3a1",
+            "display": "DERMATOLOGYREFERRAL"
+          },
+          {
+            "uuid": "238625fc-8a25-44b2-aa5a-8bf48fa0e18d",
+            "display": "ONCOLOGYVIA",
+            "allowedIf": "age >= 25 && age <= 49 && gender === 'F'"
+          },
+          {
+            "uuid": "cb5c0abd-0817-40e3-9413-8669561fadb9",
+            "display": "HIVHOMEVISIT"
+          },
+          {
+            "uuid": "ae35ed69-e07c-4209-93ce-f23733aa816b",
+            "display": "FAMILYSTATUS"
+          },
+          {
+            "uuid": "466d6707-8429-4e61-b5a0-d63444f5ad35",
+            "display": "COVIDSCREENING"
+          },
+          {
+            "uuid": "afabceae-61d4-42b6-8f6a-fff48a7797ea",
+            "display": "COVIDCASEREPORTING"
+          },
+          {
+            "uuid": "a393699f-8e99-4727-81c3-873873022dd8",
+            "display": "MOBILITYSCREENING"
+          },
+          {
+            "uuid": "5b1ef308-ed8f-4a86-88a0-c29a30246740",
+            "display": "HIVCLINICALREFERRAL"
+          },
+          {
+            "uuid": "8010fabc-2e58-4160-a201-fce9c609d2fa",
+            "display": "COVIDASSESSMENT"
+          }
+        ]
+      },
+      {
+        "uuid": "d4ac2aa5-2899-42fb-b08a-d40161815b48",
+        "name": "Adult HIV Return Visit ",
+        "allowedIf": "age >= 24 && programLocation === intendedVisitLocationUuid && !isFirstAMPATHHIVVisit",
+        "message": "Patient has to be 20yrs and above, in the location he enrolled into the HIV Care and Treatment program  and there must be a prior clinical encounter.",
+        "encounterTypes": [
+          {
+            "uuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7",
+            "display": "HIVTRIAGE"
+          },
+          {
+            "uuid": "2226e81f-38fc-4672-a615-1d37e1c8e637",
+            "display": "ADHERENCE"
+          },
+          {
+            "uuid": "cbe2d31d-2201-44ce-b52e-fbd5dc7cff33",
+            "display": "TRANSFERENCOUNTER"
+          },
+          {
+            "uuid": "5ef97eed-18f5-40f6-9fbf-a11b1f06484a",
+            "display": "LABORDERENCOUNTER"
+          },
+          {
+            "uuid": "5544894d-8add-4521-a0ea-c124c5886c8b",
+            "display": "POCLAB"
+          },
+          {
+            "uuid": "8d5b2be0-c2cc-11de-8d13-0010c6dffd0f",
+            "display": "ADULTRETURN"
+          },
+          {
+            "uuid": "238625fc-8a25-44b2-aa5a-8bf48fa0e18d",
+            "display": "ONCOLOGYVIA",
+            "allowedIf": "age >= 25 && age <= 49 && gender === 'F'"
+          },
+          {
+            "uuid": "cb5c0abd-0817-40e3-9413-8669561fadb9",
+            "display": "HIVHOMEVISIT"
+          },
+          {
+            "uuid": "df55584c-1350-11df-a1f1-0026b9348838",
+            "display": "DEATHREPORT"
+          },
+          {
+            "uuid": "1469e5fe-ad76-4041-9aa7-650e6afbe3a1",
+            "display": "DERMATOLOGYREFERRAL"
+          },
+          {
+            "uuid": "ae35ed69-e07c-4209-93ce-f23733aa816b",
+            "display": "FAMILYSTATUS"
+          },
+          {
+            "uuid": "466d6707-8429-4e61-b5a0-d63444f5ad35",
+            "display": "COVIDSCREENING"
+          },
+          {
+            "uuid": "afabceae-61d4-42b6-8f6a-fff48a7797ea",
+            "display": "COVIDCASEREPORTING"
+          },
+          {
+            "uuid": "a393699f-8e99-4727-81c3-873873022dd8",
+            "display": "MOBILITYSCREENING"
+          },
+          {
+            "uuid": "5b1ef308-ed8f-4a86-88a0-c29a30246740",
+            "display": "HIVCLINICALREFERRAL"
+          },
+          {
+            "uuid": "8010fabc-2e58-4160-a201-fce9c609d2fa",
+            "display": "COVIDASSESSMENT"
+          },
+          {
+            "uuid": "37770eca-8a2f-48d6-b3c8-54af0fa989c2",
+            "display": "MENTALHEALTHSCREENING"
+          }
+        ]
+      },
+      {
+        "uuid": "43ec2bb7-ec8e-4a66-a29d-db6281399ea5",
+        "name": "Between Care Visit ",
+        "allowedIf": "programLocation !== intendedVisitLocationUuid && !isFirstAMPATHHIVVisit",
+        "message": "Patient has to be in a different location from location he was enrolled into HIV care and treatment program and must have a prior clinical encounter",
+        "encounterTypes": [
+          {
+            "uuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7",
+            "display": "HIVTRIAGE"
+          },
+          {
+            "uuid": "db9f6a5c-e141-49fc-ad2b-bdce3f9a6c80",
+            "display": "BETWEENCAREVISIT"
+          },
+          {
+            "uuid": "df55584c-1350-11df-a1f1-0026b9348838",
+            "display": "DEATHREPORT"
+          },
+          {
+            "uuid": "1469e5fe-ad76-4041-9aa7-650e6afbe3a1",
+            "display": "DERMATOLOGYREFERRAL"
+          },
+          {
+            "uuid": "238625fc-8a25-44b2-aa5a-8bf48fa0e18d",
+            "display": "ONCOLOGYVIA",
+            "allowedIf": "age >= 25 && age <= 49 && gender === 'F'"
+          },
+          {
+            "uuid": "ae35ed69-e07c-4209-93ce-f23733aa816b",
+            "display": "FAMILYSTATUS"
+          },
+          {
+            "uuid": "987009c6-6f24-43f7-9640-c285d6553c63",
+            "display": "DRUGPICKUP"
+          },
+          {
+            "uuid": "466d6707-8429-4e61-b5a0-d63444f5ad35",
+            "display": "COVIDSCREENING"
+          },
+          {
+            "uuid": "afabceae-61d4-42b6-8f6a-fff48a7797ea",
+            "display": "COVIDCASEREPORTING"
+          },
+          {
+            "uuid": "8010fabc-2e58-4160-a201-fce9c609d2fa",
+            "display": "COVIDASSESSMENT"
+          },
+          {
+            "uuid": "37770eca-8a2f-48d6-b3c8-54af0fa989c2",
+            "display": "MENTALHEALTHSCREENING"
+          }
+        ]
+      },
+      {
+        "uuid": "578a6132-4686-4190-809f-3f8f49bdd1c6",
+        "allowedIf": "programLocation === intendedVisitLocationUuid && isFirstAMPATHHIVVisit",
+        "name": "Linkage Visit",
+        "encounterTypes": [
+          {
+            "uuid": "93b4c47b-ce5c-4d83-bef2-f941199e999d",
+            "display": "PHCTLINKAGE"
+          },
+          {
+            "uuid": "ae35ed69-e07c-4209-93ce-f23733aa816b",
+            "display": "FAMILYSTATUS"
+          },
+          {
+            "uuid": "466d6707-8429-4e61-b5a0-d63444f5ad35",
+            "display": "COVIDSCREENING"
+          },
+          {
+            "uuid": "afabceae-61d4-42b6-8f6a-fff48a7797ea",
+            "display": "COVIDCASEREPORTING"
+          }
+        ]
+      },
+      {
+        "uuid": "fcc9a836-0200-45f2-81b4-b4a687a10247",
+        "name": "Treatment Supporter Visit",
+        "encounterTypes": [
+          {
+            "uuid": "693559d3-4e44-4d33-83f9-bc70ca56fe34",
+            "display": "TXSUPPORTERMEDREFILL"
+          },
+          {
+            "uuid": "987009c6-6f24-43f7-9640-c285d6553c63",
+            "display": "DRUGPICKUP"
+          },
+          {
+            "uuid": "a393699f-8e99-4727-81c3-873873022dd8",
+            "display": "MOBILITYSCREENING"
+          },
+          {
+            "uuid": "5b1ef308-ed8f-4a86-88a0-c29a30246740",
+            "display": "HIVCLINICALREFERRAL"
+          }
+        ]
+      },
+      {
+        "uuid": "06eca2a8-1da9-4ac4-95c6-15afedd4de21",
+        "name": "HIV Lab Visit",
+        "encounterTypes": [
+          {
+            "uuid": "5ef97eed-18f5-40f6-9fbf-a11b1f06484a",
+            "display": "LABORDERENCOUNTER"
+          },
+          {
+            "uuid": "5544894d-8add-4521-a0ea-c124c5886c8b",
+            "display": "POCLAB"
+          },
+          {
+            "uuid": "466d6707-8429-4e61-b5a0-d63444f5ad35",
+            "display": "COVIDSCREENING"
+          },
+          {
+            "uuid": "afabceae-61d4-42b6-8f6a-fff48a7797ea",
+            "display": "COVIDCASEREPORTING"
+          }
+        ]
+      },
+      {
+        "uuid": "40353c46-cd54-4629-a5d1-0a1f1108b19f",
+        "name": "Inpatient peer visit",
+        "encounterTypes": [
+          {
+            "uuid": "10a86a62-b771-44d1-b1ad-3b8496c7bc47",
+            "display": "INPATIENTPEER"
+          },
+          {
+            "uuid": "df55584c-1350-11df-a1f1-0026b9348838",
+            "display": "DEATHREPORT"
+          },
+          {
+            "uuid": "466d6707-8429-4e61-b5a0-d63444f5ad35",
+            "display": "COVIDSCREENING"
+          },
+          {
+            "uuid": "afabceae-61d4-42b6-8f6a-fff48a7797ea",
+            "display": "COVIDCASEREPORTING"
+          }
+        ]
+      },
+      {
+        "uuid": "f75d41c7-e09d-4e98-9b24-78a4ca1c1229",
+        "name": "Phone Follow Up Visit",
+        "encounterTypes": [
+          {
+            "uuid": "cac3b8e5-d8f8-4d4f-b791-8c43b4cc674b",
+            "display": "TELECARE"
+          },
+          {
+            "uuid": "466d6707-8429-4e61-b5a0-d63444f5ad35",
+            "display": "COVIDSCREENING"
+          }
+        ]
+      },
+      {
+        "uuid": "6bdec0cd-d3fb-41da-9ef3-20076f349dc1",
+        "name": "Pre Appointment Follow Up Visit",
+        "allowedIf": "programLocation === intendedVisitLocationUuid && MlLocations",
+        "encounterTypes": [
+          {
+            "uuid": "d5e2d3b3-2061-4721-86f1-5852cde6475a",
+            "display": "PRE APPOINTMENT FOLLOW UP"
+          }
+        ]
+      },
+      {
+        "uuid": "0ee7598d-2345-4740-8627-f166cf5d3dc5",
+        "name": "HIV Mental health screening Visit",
+        "allowedIf": "age > 24",
+        "message": "Patient has to be 25 years and above",
+        "encounterTypes": [
+          {
+            "uuid": "37770eca-8a2f-48d6-b3c8-54af0fa989c2",
+            "display": "HIVMENTALHEALTHSCREENING"
+          }
+        ]
+      }
+    ]
+  }
+}
