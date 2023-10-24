@@ -1411,6 +1411,43 @@ module.exports = (function () {
         }
       }
     },
+    // {
+    //   method: 'GET',
+    //   path: '/etl/patient-program-config',
+    //   config: {
+    //     auth: 'simple',
+    //     plugins: {},
+    //     handler: function (request, reply) {
+    //       var requestParams = Object.assign({}, request.query);
+    //       if (!requestParams.patientUuid) {
+    //         reply(
+    //           Boom.badImplementation(
+    //             "The patient's uuid(universally unique " +
+    //               'identifier must be provided as a query param'
+    //           )
+    //         );
+    //       }
+    //       patientProgramService
+    //         .validateEnrollmentOptions(requestParams.patientUuid)
+    //         .then(function (programConfigs) {
+    //           reply(programConfigs);
+    //         })
+    //         .catch(function (err) {
+    //           console.log('there is an error', err);
+    //           reply(Boom.badImplementation(err));
+    //         });
+    //     },
+    //     description: 'Get a list of programs ',
+    //     notes: 'Returns a  list of programs',
+    //     tags: ['api'],
+    //     validate: {
+    //       options: {
+    //         allowUnknown: true
+    //       },
+    //       params: {}
+    //     }
+    //   }
+    // },
     {
       method: 'GET',
       path: '/etl/location/{uuid}/monthly-appointment-visits',
