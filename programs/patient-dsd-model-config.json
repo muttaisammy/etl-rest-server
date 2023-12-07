@@ -13,7 +13,7 @@
         {
           "qtype": "hivStatus",
           "name": "Patient HIV status",
-          "enrollIf": "age < 24",
+          "enrollIf": "age > 24",
           "value": null,
           "answers": [
             {
@@ -66,7 +66,7 @@
       {
         "uuid": "33d13ffb-5f0e-427e-ab80-637491fb6526",
         "name": "Adult HIV Initial Visit ",
-        "allowedIf": "age >= 24 && programLocation === intendedVisitLocationUuid && isFirstAMPATHHIVVisit",
+        "allowedIf": "age > 24 && programLocation === intendedVisitLocationUuid && isFirstAMPATHHIVVisit",
         "message": "Patient has to be 20yrs and above, in the location he enrolled into the HIV Care and Treatment program and there must not be prior clinical encounter.",
         "encounterTypes": [
           {
@@ -131,7 +131,7 @@
       {
         "uuid": "0ae56e8a-93ed-4071-82f1-0eaf3eb592ff",
         "name": "Adult Transfer In Visit ",
-        "allowedIf": "age >= 24 && programLocation === intendedVisitLocationUuid && isPatientTransferredOut && !isFirstAMPATHHIVVisit",
+        "allowedIf": "age > 24 && programLocation === intendedVisitLocationUuid && isPatientTransferredOut && !isFirstAMPATHHIVVisit",
         "message": "Patient has to be 20yrs and above , patient's program location should be equal to the last HIV clinical encounter location and should not be the first clinical encounter",
         "encounterTypes": [
           {

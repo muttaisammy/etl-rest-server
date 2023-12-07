@@ -1390,9 +1390,11 @@ module.exports = (function () {
               )
             );
           }
+          console.log('Program Configs');
           patientProgramService
             .validateEnrollmentOptions(requestParams.patientUuid)
             .then(function (programConfigs) {
+              console.log('programConfigs', programConfigs);
               reply(programConfigs);
             })
             .catch(function (err) {
