@@ -3,7 +3,7 @@
 const _ = require('lodash');
 const Promise = require('bluebird');
 //const programsConfig = require('./patient-program-config');
-const programsConfig = require('./patient-dsd-model-config');
+const programsConfig = require('./patient-dsd-model-config.json');
 const programVisitTypes = require('./program-visit-types.service');
 const programValidationService = require('./program-enrollment.service');
 

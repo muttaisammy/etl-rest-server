@@ -15,7 +15,7 @@ function pendingEIDReminders(params, config) {
       .then((result) => ({ success: true, result }))
       .catch((error) => ({ success: false, error }));
   };
-  console.log('Config', config);
+
   return ObsService.getPatientIdentifiers(params.patientUuid)
     .then((identifiers) => {
       let batch = [];

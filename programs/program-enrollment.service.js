@@ -63,6 +63,7 @@ function getDependanciesKeysAndData(allProgramsConfig, patientUuid) {
     dataResolver
       .getAllDataDependencies(dep[0] || [], patientUuid, {})
       .then(function (dataObject) {
+        console.log('DataObject:', dataObject);
         resolve(dataObject);
       })
       .catch((error) => {

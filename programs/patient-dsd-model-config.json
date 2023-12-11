@@ -1,11 +1,10 @@
 {
-  "fa96b074-e058-44ca-81e5-02f5ea144319": {
-    "name": "ADULT PROGRAM",
+  "520825cf-d045-4bbf-a7f5-a7018f14dd76": {
+    "name": "STANDARD CARE MODEL",
     "dataDependencies": [
       "patient",
       "enrollment",
       "patientEncounters",
-      "isPatientTransferredOut",
       "latestCovidAssessment"
     ],
     "enrollmentOptions": {
@@ -13,7 +12,7 @@
         {
           "qtype": "hivStatus",
           "name": "Patient HIV status",
-          "enrollIf": "age > 24",
+          "enrollIf": "",
           "value": null,
           "answers": [
             {
@@ -50,18 +49,7 @@
         ]
       }
     },
-    "incompatibleWith": [
-      "781d897a-1359-11df-a1f1-0026b9348838",
-      "96047aaf-7ab3-45e9-be6a-b61810fe617d",
-      "c19aec66-1a40-4588-9b03-b6be55a8dd1d",
-      "334c9e98-173f-4454-a8ce-f80b20b7fdf0",
-      "96ba279b-b23b-4e78-aba9-dcbd46a96b7b",
-      "781d8880-1359-11df-a1f1-0026b9348838",
-      "0904172d-0b6a-40df-b8a2-b3653d16dc45",
-      "a8e7c30d-6d2f-401c-bb52-d4433689a36b",
-      "f7793d42-11ac-4cfd-9b35-e0a21a7a7c31",
-      "c4246ff0-b081-460c-bcc5-b0678012659e"
-    ],
+    "incompatibleWith": [],
     "visitTypes": [
       {
         "uuid": "33d13ffb-5f0e-427e-ab80-637491fb6526",

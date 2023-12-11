@@ -3,8 +3,8 @@ var programTypeDao = require('../dao/program-type/program-type-dao');
 const _ = require('lodash');
 var programTypes = [];
 var programUuidIdMap = new Map();
-//const programsConfig = require('./patient-program-config');
-const programsConfig = require('./patient-dsd-model-config');
+const programsConfig = require('./patient-program-config');
+//const programsConfig = require('./patient-dsd-model-config');
 var def = {
   getAllprogramTypes: getAllprogramTypes,
   mapprogramUuidToId: mapprogramUuidToId,
