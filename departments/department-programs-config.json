@@ -1,34 +1,66 @@
 {
   "uud1": {
     "name": "HIV",
+    "enrollmentOptions": {
+      "requiredDepartmentQuestions": [
+        {
+          "qtype": "hivStatus",
+          "name": "Patient HIV status",
+          "enrollIf": "positive,",
+          "value": null,
+          "answers": [
+            {
+              "value": "positive",
+              "label": "Positive"
+            },
+            {
+              "value": "negative",
+              "label": "Negative"
+            },
+            {
+              "value": "exposed",
+              "label": "Exposed"
+            }
+          ]
+        }
+      ],
+      "allowMultipleEnrollment": false
+    },
     "programs": [
       {
         "uuid": "fa96b074-e058-44ca-81e5-02f5ea144319",
-        "name": "ADULT PROGRAM"
+        "name": "ADULT PROGRAM",
+        "status": "positive"
       },
       {
         "uuid": "ed55de31-1d12-4290-ae00-57eaa6a51d32",
-        "name": "PAEDIATRIC PROGRAM"
+        "name": "PAEDIATRIC PROGRAM",
+        "status": "all"
       },
       {
         "uuid": "c4297543-7fa5-4033-aa6e-c2a3042e057b",
-        "name": "ADOLESCENT &YOUNG PEOPLE PROGRAM"
+        "name": "ADOLESCENT &YOUNG PEOPLE PROGRAM",
+        "status": "all"
       },
       {
         "uuid": "0b0d3198-3296-46b4-93ac-2e3e3dc7bbc7",
-        "name": "GERIATRIC PROGRAM"
+        "name": "GERIATRIC PROGRAM",
+        "status": "all"
       },
       {
         "uuid": "32b17e24-efc9-4973-8bd4-51e17f3e57fd",
-        "name": "PMTCT PROGRAM"
+        "name": "PMTCT PROGRAM",
+        "status": "all"
       },
       {
         "uuid": "3aebf7f4-bb06-40e9-9eb4-0a6ea458bc63",
-        "name": "HIV TRANSIT DSD PROGRAM"
+        "name": "HIV TRANSIT DSD PROGRAM",
+        "status": "positive"
       },
       {
         "uuid": "520825cf-d045-4bbf-a7f5-a7018f14dd76",
-        "name": "STANDARD CARE MODEL"
+        "name": "STANDARD CARE MODEL",
+        "status": "all"
       }
     ]
   },
