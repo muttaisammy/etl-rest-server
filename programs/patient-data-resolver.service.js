@@ -19,7 +19,8 @@ const availableKeys = {
   isPatientTransferredOut: checkTransferOut,
   dcQualifedVisits: getQualifiedDcVisits,
   latestCovidAssessment: getLatestCovidAssessment,
-  isViremicHighVL: getLatestVL
+  isViremicHighVL: getLatestVL,
+  isAdult: getPatientAge
 };
 
 const def = {
@@ -46,6 +47,7 @@ function getAllDataDependencies(dataDependenciesKeys, patientUuid, params) {
       function (previous, key) {
         return availableKeys[key](patientUuid, params)
           .then(function (data) {
+            console.log('key', key);
             dataObject[key] = data;
           })
           .catch(function (err) {
@@ -71,7 +73,25 @@ function getPatient(patientUuid, params) {
     patientService
       .getPatientByUuid(patientUuid, { rep: 'full' })
       .then((patient) => {
+        console.log('Patient: ', patient);
         resolve(patient);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+}
+function getPatientAge(patientUuid, params) {
+  return new Promise((resolve, reject) => {
+    etlHivSummary
+      .getPatientAge(patientUuid)
+      .then((result) => {
+        if (result.size > 0) {
+          const isAdult = result.result[0].Age > 24 ? true : false;
+          resolve(isAdult);
+        } else {
+          resolve(false);
+        }
       })
       .catch((error) => {
         reject(error);

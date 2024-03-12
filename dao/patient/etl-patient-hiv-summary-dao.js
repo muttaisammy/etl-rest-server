@@ -5,7 +5,8 @@ var db = require('../../etl-db');
 var def = {
   getPatientHivSummary: getPatientHivSummary,
   getPatientLastEncounter: getPatientLastEncounter,
-  getPatientLastVL: getPatientLastVL
+  getPatientLastVL: getPatientLastVL,
+  getPatientAge: getPatientAge
 };
 
 module.exports = def;
@@ -77,6 +78,18 @@ function getPatientLastVL(patientUuid) {
     ],
     limit: 1,
     group: ['person_id', 'test_datetime']
+  };
+  return db.queryDb(queryObject);
+}
+function getPatientAge(patientUuid) {
+  var whereClause = ['uuid = ?', patientUuid];
+
+  var queryObject = {
+    columns: 'DATEDIFF(year, birthdate, now()) AS Age',
+    table: 'amrs.person',
+    where: whereClause,
+    limit: 1,
+    group: ['person_id']
   };
   return db.queryDb(queryObject);
 }

@@ -467,7 +467,7 @@ export class BaseMysqlReport {
 
               that.reportQuery = sqlQuery;
               // run query
-              console.log('Query', sqlQuery);
+              //  console.log('Query', sqlQuery);
               that
                 .executeReportQuery(that.reportQuery)
                 .then((result) => {

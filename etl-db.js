@@ -313,8 +313,8 @@ module.exports = (function () {
 
     var q = s.toParam();
 
-    console.log(q.text.replace('\\', ''));
-    console.log(q.values);
+    // console.log(q.text.replace('\\', ''));
+    // console.log(q.values);
 
     var sql = q.text.replace('\\', '');
     var values = q.values;
