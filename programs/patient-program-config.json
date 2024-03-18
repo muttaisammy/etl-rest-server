@@ -125,6 +125,10 @@
           {
             "uuid": "37770eca-8a2f-48d6-b3c8-54af0fa989c2",
             "display": "MENTALHEALTHSCREENING"
+          },
+          {
+            "uuid": "61ad56ae-a2c3-4ddb-a351-8c8ae253378c",
+            "display": "ADULTARTPREPARATION"
           }
         ]
       },
@@ -319,6 +323,10 @@
           {
             "uuid": "37770eca-8a2f-48d6-b3c8-54af0fa989c2",
             "display": "MENTALHEALTHSCREENING"
+          },
+          {
+            "uuid": "bda00ff3-c811-4223-a602-3eb31c96d1f2",
+            "display": "PEDARTPREPARATION"
           }
         ]
       },
@@ -498,6 +506,10 @@
           {
             "uuid": "37770eca-8a2f-48d6-b3c8-54af0fa989c2",
             "display": "MENTALHEALTHSCREENING"
+          },
+          {
+            "uuid": "a400ea27-7052-4745-b51f-d9370aaef4dc",
+            "display": "YOUTHARTPREPARATION"
           }
         ]
       },
@@ -2073,6 +2085,51 @@
           {
             "uuid": "8010fabc-2e58-4160-a201-fce9c609d2fa",
             "display": "COVIDASSESSMENT"
+          }
+        ]
+      }
+    ]
+  },
+  "203571d6-a4f2-4953-9e8b-e1105e2340f5": {
+    "name": "OTZ PROGRAM",
+    "enrollmentOptions": {
+      "requiredProgramQuestions": [],
+      "allowMultipleEnrollment": false,
+      "stateChangeEncounterTypes": {
+        "enrollment": [],
+        "transfer": [
+          {
+            "uuid": "cbe2d31d-2201-44ce-b52e-fbd5dc7cff33",
+            "name": "AMPATH POC Transfer Out Form v0.01",
+            "required": true
+          }
+        ],
+        "discharge": [
+          {
+            "uuid": "c2380050-5e55-4d93-9f4f-cc4cd9d59dc0",
+            "name": "AMPATH POC OTZ Exit Form V1.0",
+            "required": true
+          }
+        ]
+      }
+    },
+    "dataDependencies": [
+      "patient",
+      "enrollment",
+      "hivLastTenClinicalEncounters"
+    ],
+    "incompatibleWith": [],
+    "visitTypes": [
+      {
+        "uuid": "d3d5fd4a-508c-4610-97b7-5197a0bdb88d",
+        "name": "OTZ Visit ",
+        "groupVisit": true,
+        "allowedIf": "age > 9 && age <= 24",
+        "message": "Patient has to be between the age of 10 and 24",
+        "encounterTypes": [
+          {
+            "uuid": "76680613-2974-4d89-9b85-6b0a4bf56267",
+            "display": "OTZACTIVITY"
           }
         ]
       }
@@ -4444,7 +4501,7 @@
           {
             "uuid": "8d5b2be0-c2cc-11de-8d13-0010c6dffd0f",
             "display": "ADULTRETURN",
-            "allowedIf": "!isViremicHighVL && age > 24",
+            "allowedIf": "age > 24",
             "errors": {
               "viremiaError": "To access clinical forms kindly fill Enhanced Adherence Encounter Form"
             }
@@ -4452,7 +4509,7 @@
           {
             "uuid": "4e7553b4-373d-452f-bc89-3f4ad9a01ce7",
             "display": "YOUTHRETURN",
-            "allowedIf": "!isViremicHighVL && age >= 10 && age <= 24",
+            "allowedIf": "age >= 10 && age <= 24",
             "errors": {
               "viremiaError": "To access clinical forms kindly fill Enhanced Adherence Encounter Form"
             }
@@ -4460,7 +4517,7 @@
           {
             "uuid": "8d5b3108-c2cc-11de-8d13-0010c6dffd0f",
             "display": "PEDSRETURN",
-            "allowedIf": "!isViremicHighVL && age <= 14",
+            "allowedIf": "age <= 14",
             "errors": {
               "viremiaError": "To access clinical forms kindly fill Enhanced Adherence Encounter Form"
             }
