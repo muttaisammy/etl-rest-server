@@ -33,6 +33,11 @@
         "status": "positive_new"
       },
       {
+        "uuid": "a89ef6fa-1350-11df-a1f1-0026b9348838",
+        "name": "HIV SERVICE",
+        "status": "positive_new"
+      },
+      {
         "uuid": "c8b9b024-1a3a-47a4-a2aa-fcaf3053ea27",
         "name": "ADVANCED HIV DISEASE MODEL",
         "status": "positive"
