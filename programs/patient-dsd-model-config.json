@@ -1,6 +1,6 @@
 {
   "f0faccb7-657e-413c-abad-54f13409d106": {
-    "name": "STANDARD CARE MODEL",
+    "name": "HIV CARE SERVICE",
     "dataDependencies": [
       "patient",
       "enrollment",

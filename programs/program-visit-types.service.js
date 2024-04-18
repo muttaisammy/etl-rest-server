@@ -1,5 +1,5 @@
 const Promise = require('bluebird');
-const scopeBuilder = require('./scope-builder.service');
+const scope = require('./scope-builder.service');
 const dataResolver = require('./patient-data-resolver.service');
 const expressionRunner = require('../expression-runner/expression-runner');
 const encounterType = require('../dao/encounter-type/encounter-type-dao');
